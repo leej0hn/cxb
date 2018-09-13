@@ -90,14 +90,31 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("kenoId", "1");
-                            params.put("cart[0][playId]", "1"); //第一注
-                            params.put("cart[0][dtype]", "1"); //玩法类型
-                            params.put("cart[0][content]", "");
-                            params.put("cart[0][isComplex]", "false"); //是否混合
-                            params.put("cart[0][pl]", "1.99"); //赔率
-                            params.put("cart[0][money]", "1"); //金额
+                            Map<String,String> params = new HashMap<>();
+
+                            params.put("cart[0][playId]","6"); // 组6
+                            params.put("cart[0][dtype]","0"); //玩法类型
+                            params.put("cart[0][content]","123");//号码
+                            params.put("cart[0][isComplex]","true"); //是否混合
+                            params.put("cart[0][pl]","150"); //赔率
+                            params.put("cart[0][money]","1"); //金额
+
+                            //第二注的参数，第三注以此类推
+                            params.put("cart[1][playId]","6"); // 组6
+                            params.put("cart[1][dtype]","0");//玩法类型
+                            params.put("cart[1][content]","258");//号码
+                            params.put("cart[1][isComplex]","true");
+                            params.put("cart[1][pl]","150");//赔率
+                            params.put("cart[1][money]","1");//金额
+
+                            //第三注的参数
+                            params.put("cart[2][playId]","6"); // 组6
+                            params.put("cart[2][dtype]","0");//玩法类型
+                            params.put("cart[2][content]","369");//号码
+                            params.put("cart[2][isComplex]","true");
+                            params.put("cart[2][pl]","150");//赔率
+                            params.put("cart[2][money]","1");//金额
+
                             boolean batchPost = CxbHttpUtils.batchPost(params);
                             if (batchPost) {
                                 Log.i(Config.TAG, "订单提交成功");

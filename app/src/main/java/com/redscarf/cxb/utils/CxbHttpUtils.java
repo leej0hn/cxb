@@ -108,6 +108,7 @@ public class CxbHttpUtils {
         try {
             if( ticket != null ) {
                 String matchId = loadData();
+                params.put("kenoId","1");
                 params.put("matchId",matchId);
                 String cookie = "ticket=" + ticket;
                 String result = OkHttpUtil.postForm(Config.batchPostUrl, params, cookie);
