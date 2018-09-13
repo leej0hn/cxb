@@ -74,23 +74,34 @@ public class CxbHttpUtils {
     /**
      * 提交订单
      * 提交成功 为true ,否则为false
+     * 例子：选出来 3组数据，即3注 123 258 369 游戏类型为 【组6】
      *
          Map<String,String> params = new HashMap<>();
          params.put("kenoId","1");
          params.put("matchId",matchId);
-         params.put("cart[0][playId]","1"); //第一注
-         params.put("cart[0][dtype]","1"); //玩法类型
-         params.put("cart[0][content]","");
-         params.put("cart[0][isComplex]","false"); //是否混合
-         params.put("cart[0][pl]","1.99"); //赔率
+
+         params.put("cart[0][playId]","6"); // 组6
+         params.put("cart[0][dtype]","0"); //玩法类型
+         params.put("cart[0][content]","123");//号码
+         params.put("cart[0][isComplex]","true"); //是否混合
+         params.put("cart[0][pl]","150"); //赔率
          params.put("cart[0][money]","1"); //金额
+
          //第二注的参数，第三注以此类推
-         params.put("cart[1][playId]","2"); //第二注
-         params.put("cart[1][dtype]","3");
-         params.put("cart[1][content]","");
-         params.put("cart[1][isComplex]","false");
-         params.put("cart[1][pl]","1.99");
-         params.put("cart[1][money]","6");
+         params.put("cart[1][playId]","6"); // 组6
+         params.put("cart[1][dtype]","0");//玩法类型
+         params.put("cart[1][content]","258");//号码
+         params.put("cart[1][isComplex]","true");
+         params.put("cart[1][pl]","150");//赔率
+         params.put("cart[1][money]","1");//金额
+
+         //第三注的参数
+         params.put("cart[2][playId]","6"); // 组6
+         params.put("cart[2][dtype]","0");//玩法类型
+         params.put("cart[2][content]","369");//号码
+         params.put("cart[2][isComplex]","true");
+         params.put("cart[2][pl]","150");//赔率
+         params.put("cart[2][money]","1");//金额
      *
      */
     public static boolean batchPost( Map<String,String> params ){
